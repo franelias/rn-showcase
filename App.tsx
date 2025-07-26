@@ -1,20 +1,32 @@
+import * as React from 'react';
+import { createStaticNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SelectPage from './pages/SelectPage';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import RandomGradientPage from './pages/RandomGradientPage';
+import PickAnimatedPage from './pages/PickAnimatedPage';
+import HomeGradientPage from './pages/HomeGradientPage';
+
+const RootStack = createNativeStackNavigator({
+  screens: {
+    SelectPage: SelectPage,
+    RandomGradientPage: RandomGradientPage,
+    PickAnimatedPage: PickAnimatedPage,
+    HomeGradientPage: HomeGradientPage,
+  },
+  screenOptions: {
+    headerShown: false,
+  },
+});
+
+const Navigation = createStaticNavigation(RootStack);
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <StatusBar />
+      <Navigation />
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
