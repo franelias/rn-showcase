@@ -7,6 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import RandomGradientPage from './pages/RandomGradientPage';
 import PickAnimatedPage from './pages/PickAnimatedPage';
 import HomeGradientPage from './pages/HomeGradientPage';
+import WithdrawConceptStack from './pages/WithdrawConceptPage/navigation';
 
 const RootStack = createNativeStackNavigator({
   screens: {
@@ -14,6 +15,7 @@ const RootStack = createNativeStackNavigator({
     RandomGradientPage: RandomGradientPage,
     PickAnimatedPage: PickAnimatedPage,
     HomeGradientPage: HomeGradientPage,
+    WithdrawConceptPage: WithdrawConceptStack,
   },
   screenOptions: {
     headerShown: false,

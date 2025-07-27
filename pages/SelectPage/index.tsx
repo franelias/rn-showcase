@@ -27,6 +27,10 @@ const SelectPage = () => {
                 title="Home Gradient"
                 onPress={() => navigation.navigate("HomeGradientPage" as never)}
             />
+            <Button
+                title="Withdraw Concept"
+                onPress={() => navigation.navigate("WithdrawConceptPage" as never)}
+            />
         </SafeAreaView>
     );
 };
