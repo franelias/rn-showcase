@@ -1,16 +1,14 @@
-import { useNavigation, usePreventRemove } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import React, { useCallback, useRef } from "react";
-import { Button, Share, Text, useWindowDimensions, View } from "react-native";
+import { Button, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { captureRef } from "react-native-view-shot";
-import * as MediaLibrary from 'expo-media-library';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import * as Sharing from 'expo-sharing';
 
 const DonePage = () => {
     const { top, bottom } = useSafeAreaInsets();
     const navigation = useNavigation();
     const viewRef = useRef<View>(null);
-    const { width } = useWindowDimensions();
 
     const onSaveImageAsync = useCallback(async () => {
         try {
@@ -19,10 +17,7 @@ const DonePage = () => {
                 result: "tmpfile",
             });
 
-            await Share.share({
-                url: localUri,
-                title: "Retiro realizado",
-            },);
+            await Sharing.shareAsync(localUri)
         } catch (e) {
             console.log(e);
         }
@@ -167,15 +162,14 @@ const DonePage = () => {
                         </Text>
                     </View>
                 </View>
-
             </View>
 
             <View style={{ flex: 1, justifyContent: "flex-end" }}>
-                <View style={{ justifyContent: "center", alignItems: "center", marginTop: 24, paddingHorizontal: 24 }}>
+                <View style={{ justifyContent: "center", marginTop: 24, paddingHorizontal: 24 }}>
                     <Button title="Compartir" onPress={onSaveImageAsync} />
                 </View>
 
-                <View style={{ justifyContent: "center", alignItems: "center", marginTop: 8, paddingHorizontal: 24 }}>
+                <View style={{ justifyContent: "center", marginTop: 8, paddingHorizontal: 24 }}>
                     <Button title="Volver" onPress={() => navigation.goBack()} />
                 </View>
             </View>

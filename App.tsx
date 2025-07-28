@@ -8,6 +8,7 @@ import RandomGradientPage from './pages/RandomGradientPage';
 import PickAnimatedPage from './pages/PickAnimatedPage';
 import HomeGradientPage from './pages/HomeGradientPage';
 import WithdrawConceptStack from './pages/WithdrawConceptPage/navigation';
+import BlurEffectPage from './pages/BlurEffectPage';
 
 const RootStack = createNativeStackNavigator({
   screens: {
@@ -16,6 +17,7 @@ const RootStack = createNativeStackNavigator({
     PickAnimatedPage: PickAnimatedPage,
     HomeGradientPage: HomeGradientPage,
     WithdrawConceptPage: WithdrawConceptStack,
+    BlurEffectPage: BlurEffectPage,
   },
   screenOptions: {
     headerShown: false,

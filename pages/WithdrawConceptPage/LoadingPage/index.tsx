@@ -1,15 +1,16 @@
-import { Canvas, LinearGradient, Rect, vec } from "@shopify/react-native-skia";
 import React, { useEffect, useRef, useState } from "react";
-import { ActivityIndicator, Easing, Text, TouchableOpacity, useWindowDimensions, View } from "react-native";
-import Animated, { FadeIn, FadeOut, SharedValue, useDerivedValue, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
-import { FontAwesome } from "@expo/vector-icons";
+import { ActivityIndicator, Text, View } from "react-native";
+import Animated, { FadeOut, SharedValue, useSharedValue, withDelay, withTiming } from "react-native-reanimated";
 import LottieView from "lottie-react-native";
-import { StackActions, useNavigation } from "@react-navigation/native";
+import { StackActions, useNavigation, usePreventRemove } from "@react-navigation/native";
+
+const LOADING_DURATION = 3000;
 
 const LoadingPage = () => {
     const animationRef = useRef<LottieView>(null);
     const [isLoading, setIsLoading] = useState(true);
     const navigation = useNavigation();
+
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
@@ -21,8 +22,12 @@ const LoadingPage = () => {
                 );
             }, 1600);
 
-        }, 1000);
-    }, []);
+        }, LOADING_DURATION);
+    }, [setIsLoading, navigation]);
+
+    usePreventRemove(isLoading, () => {
+        console.log("prevent remove");
+    });
 
     const AnimatedLottieView = Animated.createAnimatedComponent(LottieView);
 
@@ -37,6 +42,17 @@ const LoadingPage = () => {
                     style={{ width: "40%", height: "40%", justifyContent: "center", alignItems: "center" }}
                     loop={false}
                     progress={progress as SharedValue<number | undefined>}
+                    colorFilters={[
+                        {
+                            keypath: "button",
+                            color: "#00ff00",
+                        },
+                        {
+                            keypath: "Sending Loader",
+                            color: "#F00000",
+                        },
+                    ]}
+
                 />
             }
 
@@ -46,7 +62,7 @@ const LoadingPage = () => {
                     style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
                 >
                     <ActivityIndicator
-                        size="large"
+                        size={70}
                         color="#00ff00"
                     />
                     <Text style={{ fontSize: 24, fontWeight: "bold", marginTop: 16 }}>

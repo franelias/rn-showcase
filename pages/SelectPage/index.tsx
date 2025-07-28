@@ -9,7 +9,7 @@ import { useNavigation } from "@react-navigation/native";
 const SelectPage = () => {
     const navigation = useNavigation();
     return (
-        <SafeAreaView style={{ flex: 1, gap: 16 }}>
+        <SafeAreaView style={{ flex: 1, gap: 16, paddingHorizontal: 24 }}>
             <View style={{ justifyContent: "center", alignItems: "center", marginVertical: 16 }}>
                 <Text style={{ fontSize: 24, fontWeight: "bold" }}>
                     Select a component
@@ -30,6 +30,10 @@ const SelectPage = () => {
             <Button
                 title="Withdraw Concept"
                 onPress={() => navigation.navigate("WithdrawConceptPage" as never)}
+            />
+            <Button
+                title="Blur and motion Effect"
+                onPress={() => navigation.navigate("BlurEffectPage" as never)}
             />
         </SafeAreaView>
     );
