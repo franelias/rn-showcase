@@ -9,7 +9,7 @@ import PickAnimatedPage from './pages/PickAnimatedPage';
 import HomeGradientPage from './pages/HomeGradientPage';
 import WithdrawConceptStack from './pages/WithdrawConceptPage/navigation';
 import BlurEffectPage from './pages/BlurEffectPage';
-import QRPage from './pages/QRPage';
+import QRStack from './pages/QRPage/navigation';
 
 const RootStack = createNativeStackNavigator({
   screens: {
@@ -19,7 +19,7 @@ const RootStack = createNativeStackNavigator({
     HomeGradientPage: HomeGradientPage,
     WithdrawConceptPage: WithdrawConceptStack,
     BlurEffectPage: BlurEffectPage,
-    QRPage: QRPage,
+    QRPage: QRStack,
   },
   screenOptions: {
     headerShown: false,
