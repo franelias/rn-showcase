@@ -35,6 +35,10 @@ const SelectPage = () => {
                 title="Blur and motion Effect"
                 onPress={() => navigation.navigate("BlurEffectPage" as never)}
             />
+            <Button
+                title="QR Code"
+                onPress={() => navigation.navigate("QRPage" as never)}
+            />
         </SafeAreaView>
     );
 };
