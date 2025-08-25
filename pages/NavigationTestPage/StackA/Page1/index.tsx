@@ -1,16 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import { View, Text, Button } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export const Page1 = () => {
-    const { top } = useSafeAreaInsets();
     const navigation = useNavigation();
 
-    console.log(navigation.getState());
-
     return (
-        <View style={{ paddingTop: top }}>
-            <Text>StackA Page1</Text>
+        <View style={{ paddingTop: 12, paddingHorizontal: 24, justifyContent: "center", alignItems: "center" }}>
+            <Text style={{ marginBottom: 12 }}>Page1</Text>
             <Button
                 title="Go to StackA Page2"
                 onPress={() => navigation.navigate("Page2" as never)}

@@ -1,15 +1,12 @@
 import { View, Text, Button } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export const HomeScreen = () => {
     const navigation = useNavigation();
 
-    const { top } = useSafeAreaInsets();
-
     return (
-        <View style={{ paddingTop: top }}>
-            <Text>Home Screen</Text>
+        <View style={{ paddingTop: 24, paddingHorizontal: 24, justifyContent: "center", alignItems: "center" }}>
+            <Text style={{ marginBottom: 12 }}>Home Screen</Text>
             <Button
                 title="Go to Stack A"
                 onPress={() => navigation.navigate("StackA" as never)}

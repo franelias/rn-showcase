@@ -7,16 +7,13 @@ const StackA = createNativeStackNavigator(
         screens: {
             Page1: {
                 screen: Page1,
-                options: {
-                    headerShown: false,
-                },
             },
             Page2: {
                 screen: Page2,
-                options: {
-                    headerShown: false,
-                },
             },
+        },
+        screenOptions: {
+            headerShown: false,
         },
     }
 );
