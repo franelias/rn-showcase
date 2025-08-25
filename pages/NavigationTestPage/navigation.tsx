@@ -27,7 +27,6 @@ const NavigationTestStack = createNativeStackNavigator({
             screen: StackB,
         },
     },
-
 });
 
 export default NavigationTestStack;

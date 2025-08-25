@@ -9,11 +9,17 @@ export const Page2 = () => {
             <Text style={{ marginBottom: 12 }}>Page2</Text>
             <Button
                 title="Go to StackB Page1"
-                onPress={() => navigation.navigate("Page1" as never,)}
+                onPress={() => navigation.navigate("Page1" as never)}
             />
             <Button
                 title="Go to tabs"
                 onPress={() => navigation.dispatch(StackActions.popTo("Tabs"))}
+            />
+            <Button
+                title="Go to tabs, profile"
+                onPress={() => navigation.dispatch(StackActions.popTo("Tabs", {
+                    screen: "Profile",
+                }))}
             />
             <Button
                 title="Go page1, popTo"
