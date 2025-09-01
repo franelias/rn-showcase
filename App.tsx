@@ -11,6 +11,7 @@ import WithdrawConceptStack from './pages/WithdrawConceptPage/navigation';
 import BlurEffectPage from './pages/BlurEffectPage';
 import QRStack from './pages/QRPage/navigation';
 import NavigationTestStack from './pages/NavigationTestPage/navigation';
+import ComponentsTestStack from './pages/ComponentsTest/navigation';
 
 const RootStack = createNativeStackNavigator({
   screens: {
@@ -22,6 +23,7 @@ const RootStack = createNativeStackNavigator({
     BlurEffectPage: BlurEffectPage,
     QRPage: QRStack,
     NavigationTestPage: NavigationTestStack,
+    ComponentsTestPage: ComponentsTestStack,
   },
   screenOptions: {
     headerShown: false,

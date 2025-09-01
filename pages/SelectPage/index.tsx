@@ -43,6 +43,10 @@ const SelectPage = () => {
                 title="Navigation Test"
                 onPress={() => navigation.navigate("NavigationTestPage" as never)}
             />
+            <Button
+                title="Components Test"
+                onPress={() => navigation.navigate("ComponentsTestPage" as never)}
+            />
         </SafeAreaView>
     );
 };
